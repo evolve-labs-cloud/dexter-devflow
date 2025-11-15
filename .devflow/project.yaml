@@ -1,0 +1,163 @@
+# DevFlow Project Metadata
+# Este arquivo contém informação estruturada sobre o estado do projeto
+# Atualizado automaticamente pelo @chronicler
+
+project:
+  name: "DevFlow"
+  version: "0.2.0"
+  description: "Sistema multi-agentes para desenvolvimento de software"
+  created: "2025-11-15"
+  last_updated: "2025-11-15"
+
+  # Estado atual
+  status: "active"
+  phase: "ready"
+
+  # Repositório
+  repository:
+    url: "https://github.com/seu-usuario/devflow"
+    main_branch: "main"
+
+# Agentes disponíveis
+agents:
+  - id: "strategist"
+    name: "Strategist"
+    role: "planning"
+    focus: "Planejamento & Produto"
+    triggers:
+      - "@strategist"
+      - "PRD"
+      - "requirements"
+      - "user stories"
+    outputs:
+      - "docs/planning/"
+      - "PRDs"
+      - "User stories"
+
+  - id: "architect"
+    name: "Architect"
+    role: "design"
+    focus: "Design & Arquitetura"
+    triggers:
+      - "@architect"
+      - "ADR"
+      - "design"
+      - "architecture"
+    outputs:
+      - "docs/decisions/"
+      - "docs/architecture/"
+      - "ADRs"
+      - "Diagramas técnicos"
+
+  - id: "builder"
+    name: "Builder"
+    role: "implementation"
+    focus: "Implementação"
+    triggers:
+      - "@builder"
+      - "implement"
+      - "code"
+      - "refactor"
+    outputs:
+      - "Código fonte"
+      - "Testes"
+      - "Code reviews"
+
+  - id: "guardian"
+    name: "Guardian"
+    role: "quality"
+    focus: "Qualidade & Segurança"
+    triggers:
+      - "@guardian"
+      - "test"
+      - "security"
+      - "performance"
+    outputs:
+      - "Estratégia de testes"
+      - "Security audits"
+      - "Performance reports"
+
+  - id: "chronicler"
+    name: "Chronicler"
+    role: "documentation"
+    focus: "Documentação & Memória"
+    triggers:
+      - "@chronicler"
+      - "document"
+      - "snapshot"
+      - "changelog"
+    outputs:
+      - "docs/CHANGELOG.md"
+      - ".devflow/snapshots/"
+      - "ADRs automáticos"
+      - "Knowledge graph"
+
+# Tecnologias e stack
+tech_stack:
+  core:
+    - "Markdown"
+    - "YAML"
+    - "JSON"
+    - "Bash"
+
+  tools:
+    - "Claude Code"
+    - "Git"
+
+# Features implementadas
+features:
+  - id: "multi-agent-system"
+    name: "Sistema Multi-Agentes"
+    status: "implemented"
+    version: "0.1.0"
+    description: "5 agentes especializados para desenvolvimento"
+
+  - id: "documentation-automation"
+    name: "Documentação Automática"
+    status: "implemented"
+    version: "0.1.0"
+    description: "Chronicler mantém CHANGELOG e snapshots"
+
+  - id: "context-snapshots"
+    name: "Context Snapshots"
+    status: "implemented"
+    version: "0.1.0"
+    description: "Prevenção de drift através de snapshots"
+
+  - id: "structured-metadata"
+    name: "Metadata Estruturada"
+    status: "implemented"
+    version: "0.2.0"
+    description: "YAML/JSON para parse rápido pela IA"
+
+# Decisões arquiteturais
+decisions:
+  - id: "ADR-001"
+    title: "5 Agentes ao invés de 19+"
+    status: "accepted"
+    date: "2025-11-15"
+    tags: ["architecture", "agents", "simplicity"]
+
+# Métricas (atualizadas pelo Chronicler)
+metrics:
+  total_files: 0
+  total_agents: 5
+  total_decisions: 1
+  documentation_coverage: "excellent"
+  metadata_coverage: "excellent"
+
+# Configurações
+config:
+  chronicler:
+    auto_snapshot: false
+    snapshot_frequency: "on-demand"
+    auto_changelog: true
+
+  documentation:
+    format: "markdown"
+    adr_template: "docs/decisions/000-template.md"
+
+  quality:
+    require_tests: true
+    require_security_review: true
+    require_documentation: true

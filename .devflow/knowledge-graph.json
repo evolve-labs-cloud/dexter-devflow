@@ -1,0 +1,349 @@
+{
+  "graph": {
+    "version": "1.0.0",
+    "generated": "2025-11-15",
+    "generator": "@chronicler",
+    "description": "Knowledge graph conectando decisões, features, agentes e documentos"
+  },
+
+  "nodes": [
+    {
+      "id": "agent:strategist",
+      "type": "agent",
+      "name": "Strategist",
+      "role": "planning",
+      "file": ".devflow/agents/strategist.md",
+      "metadata": ".devflow/agents/strategist.meta.yaml"
+    },
+    {
+      "id": "agent:architect",
+      "type": "agent",
+      "name": "Architect",
+      "role": "design",
+      "file": ".devflow/agents/architect.md",
+      "metadata": ".devflow/agents/architect.meta.yaml"
+    },
+    {
+      "id": "agent:builder",
+      "type": "agent",
+      "name": "Builder",
+      "role": "implementation",
+      "file": ".devflow/agents/builder.md",
+      "metadata": ".devflow/agents/builder.meta.yaml"
+    },
+    {
+      "id": "agent:guardian",
+      "type": "agent",
+      "name": "Guardian",
+      "role": "quality",
+      "file": ".devflow/agents/guardian.md",
+      "metadata": ".devflow/agents/guardian.meta.yaml"
+    },
+    {
+      "id": "agent:chronicler",
+      "type": "agent",
+      "name": "Chronicler",
+      "role": "documentation",
+      "file": ".devflow/agents/chronicler.md",
+      "metadata": ".devflow/agents/chronicler.meta.yaml"
+    },
+
+    {
+      "id": "decision:ADR-001",
+      "type": "decision",
+      "title": "5 Agentes ao invés de 19+",
+      "status": "accepted",
+      "impact": "critical",
+      "file": "docs/decisions/001-five-agents-architecture.md",
+      "tags": ["architecture", "agents", "simplicity"]
+    },
+    {
+      "id": "decision:ADR-002",
+      "type": "decision",
+      "title": "Documentação centralizada em docs/",
+      "status": "accepted",
+      "impact": "high",
+      "file": null,
+      "tags": ["structure", "documentation"]
+    },
+    {
+      "id": "decision:ADR-003",
+      "type": "decision",
+      "title": "Metadata estruturada (YAML/JSON)",
+      "status": "accepted",
+      "impact": "high",
+      "file": null,
+      "tags": ["metadata", "ai-optimization"]
+    },
+
+    {
+      "id": "feature:multi-agent-system",
+      "type": "feature",
+      "name": "Sistema Multi-Agentes",
+      "status": "implemented",
+      "version": "0.1.0"
+    },
+    {
+      "id": "feature:documentation-automation",
+      "type": "feature",
+      "name": "Documentação Automática",
+      "status": "implemented",
+      "version": "0.1.0"
+    },
+    {
+      "id": "feature:context-snapshots",
+      "type": "feature",
+      "name": "Context Snapshots",
+      "status": "implemented",
+      "version": "0.1.0"
+    },
+    {
+      "id": "feature:structured-metadata",
+      "type": "feature",
+      "name": "Metadata Estruturada",
+      "status": "implemented",
+      "version": "0.2.0"
+    },
+
+    {
+      "id": "doc:README",
+      "type": "document",
+      "name": "README.md",
+      "purpose": "Overview e instalação",
+      "file": "README.md"
+    },
+    {
+      "id": "doc:INSTALLATION",
+      "type": "document",
+      "name": "INSTALLATION.md",
+      "purpose": "Guia completo de instalação",
+      "file": "docs/INSTALLATION.md"
+    },
+    {
+      "id": "doc:CHANGELOG",
+      "type": "document",
+      "name": "CHANGELOG.md",
+      "purpose": "Histórico de mudanças",
+      "file": "docs/CHANGELOG.md"
+    },
+    {
+      "id": "doc:ARCHITECTURE",
+      "type": "document",
+      "name": "ARCHITECTURE.md",
+      "purpose": "Arquitetura do DevFlow",
+      "file": "docs/ARCHITECTURE.md"
+    }
+  ],
+
+  "edges": [
+    {
+      "from": "decision:ADR-001",
+      "to": "feature:multi-agent-system",
+      "type": "defines",
+      "description": "ADR-001 define a arquitetura de 5 agentes"
+    },
+    {
+      "from": "feature:multi-agent-system",
+      "to": "agent:strategist",
+      "type": "implements",
+      "description": "Feature implementa agente Strategist"
+    },
+    {
+      "from": "feature:multi-agent-system",
+      "to": "agent:architect",
+      "type": "implements",
+      "description": "Feature implementa agente Architect"
+    },
+    {
+      "from": "feature:multi-agent-system",
+      "to": "agent:builder",
+      "type": "implements",
+      "description": "Feature implementa agente Builder"
+    },
+    {
+      "from": "feature:multi-agent-system",
+      "to": "agent:guardian",
+      "type": "implements",
+      "description": "Feature implementa agente Guardian"
+    },
+    {
+      "from": "feature:multi-agent-system",
+      "to": "agent:chronicler",
+      "type": "implements",
+      "description": "Feature implementa agente Chronicler"
+    },
+
+    {
+      "from": "agent:strategist",
+      "to": "agent:architect",
+      "type": "flows_to",
+      "description": "Strategist passa para Architect após planejamento"
+    },
+    {
+      "from": "agent:architect",
+      "to": "agent:builder",
+      "type": "flows_to",
+      "description": "Architect passa para Builder após design"
+    },
+    {
+      "from": "agent:builder",
+      "to": "agent:guardian",
+      "type": "flows_to",
+      "description": "Builder passa para Guardian para validação"
+    },
+    {
+      "from": "agent:builder",
+      "to": "agent:chronicler",
+      "type": "triggers",
+      "description": "Builder aciona Chronicler após mudanças"
+    },
+    {
+      "from": "agent:guardian",
+      "to": "agent:chronicler",
+      "type": "triggers",
+      "description": "Guardian aciona Chronicler após validação"
+    },
+
+    {
+      "from": "decision:ADR-002",
+      "to": "doc:INSTALLATION",
+      "type": "impacts",
+      "description": "Decisão de estrutura afeta documentação de instalação"
+    },
+    {
+      "from": "decision:ADR-003",
+      "to": "feature:structured-metadata",
+      "type": "enables",
+      "description": "Decisão de metadata habilita feature"
+    },
+
+    {
+      "from": "feature:documentation-automation",
+      "to": "agent:chronicler",
+      "type": "implemented_by",
+      "description": "Chronicler implementa automação de docs"
+    },
+    {
+      "from": "feature:documentation-automation",
+      "to": "doc:CHANGELOG",
+      "type": "maintains",
+      "description": "Feature mantém CHANGELOG automaticamente"
+    },
+
+    {
+      "from": "feature:context-snapshots",
+      "to": "agent:chronicler",
+      "type": "implemented_by",
+      "description": "Chronicler cria snapshots"
+    },
+
+    {
+      "from": "feature:structured-metadata",
+      "to": "agent:chronicler",
+      "type": "used_by",
+      "description": "Chronicler usa metadata para knowledge graph"
+    },
+
+    {
+      "from": "doc:README",
+      "to": "doc:INSTALLATION",
+      "type": "references",
+      "description": "README referencia guia de instalação"
+    },
+    {
+      "from": "doc:README",
+      "to": "agent:strategist",
+      "type": "documents",
+      "description": "README documenta agente Strategist"
+    },
+    {
+      "from": "doc:README",
+      "to": "agent:architect",
+      "type": "documents",
+      "description": "README documenta agente Architect"
+    },
+    {
+      "from": "doc:README",
+      "to": "agent:builder",
+      "type": "documents",
+      "description": "README documenta agente Builder"
+    },
+    {
+      "from": "doc:README",
+      "to": "agent:guardian",
+      "type": "documents",
+      "description": "README documenta agente Guardian"
+    },
+    {
+      "from": "doc:README",
+      "to": "agent:chronicler",
+      "type": "documents",
+      "description": "README documenta agente Chronicler"
+    }
+  ],
+
+  "tags": {
+    "architecture": ["decision:ADR-001", "decision:ADR-002"],
+    "agents": ["decision:ADR-001", "agent:strategist", "agent:architect", "agent:builder", "agent:guardian", "agent:chronicler"],
+    "simplicity": ["decision:ADR-001"],
+    "documentation": ["decision:ADR-002", "feature:documentation-automation", "agent:chronicler"],
+    "metadata": ["decision:ADR-003", "feature:structured-metadata"],
+    "ai-optimization": ["decision:ADR-003", "feature:structured-metadata"]
+  },
+
+  "queries": {
+    "description": "Queries comuns que a IA pode fazer rapidamente",
+    "examples": [
+      {
+        "query": "Quais decisões impactam o agente Chronicler?",
+        "result": ["decision:ADR-003"],
+        "path": "decision:ADR-003 --enables--> feature:structured-metadata --used_by--> agent:chronicler"
+      },
+      {
+        "query": "Qual o fluxo completo dos agentes?",
+        "result": ["agent:strategist", "agent:architect", "agent:builder", "agent:guardian", "agent:chronicler"],
+        "path": "strategist --flows_to--> architect --flows_to--> builder --flows_to--> guardian --triggers--> chronicler"
+      },
+      {
+        "query": "Quais features estão implementadas?",
+        "result": ["feature:multi-agent-system", "feature:documentation-automation", "feature:context-snapshots", "feature:structured-metadata"],
+        "filter": "nodes where type='feature' and status='implemented'"
+      },
+      {
+        "query": "Quais documentos referenciam agentes?",
+        "result": ["doc:README"],
+        "path": "doc:README --documents--> agent:*"
+      }
+    ]
+  },
+
+  "statistics": {
+    "total_nodes": 17,
+    "total_edges": 24,
+    "node_types": {
+      "agent": 5,
+      "decision": 3,
+      "feature": 4,
+      "document": 4
+    },
+    "edge_types": {
+      "defines": 1,
+      "implements": 5,
+      "flows_to": 4,
+      "triggers": 2,
+      "impacts": 1,
+      "enables": 1,
+      "implemented_by": 2,
+      "maintains": 1,
+      "used_by": 1,
+      "references": 1,
+      "documents": 5
+    },
+    "avg_connections_per_node": 2.8,
+    "most_connected_nodes": [
+      { "node": "agent:chronicler", "connections": 7 },
+      { "node": "doc:README", "connections": 6 },
+      { "node": "agent:builder", "connections": 4 }
+    ]
+  }
+}
