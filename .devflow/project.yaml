@@ -6,12 +6,12 @@ project:
   name: "DevFlow"
   version: "0.3.0"
   description: "Sistema multi-agentes para desenvolvimento de software"
-  created: "2025-12-05"
+  created: "2025-11-15"
   last_updated: "2025-12-05"
 
   # Estado atual
   status: "active"
-  phase: "ready"
+  phase: "orchestration-enhanced"
 
   # Repositório
   repository:
@@ -22,10 +22,8 @@ project:
 agents:
   - id: "strategist"
     name: "Strategist"
-    version: "1.1.0"
     role: "planning"
     focus: "Planejamento & Produto"
-    has_hard_stops: true
     triggers:
       - "@strategist"
       - "PRD"
@@ -38,10 +36,8 @@ agents:
 
   - id: "architect"
     name: "Architect"
-    version: "1.0.0"
     role: "design"
     focus: "Design & Arquitetura"
-    has_hard_stops: true
     triggers:
       - "@architect"
       - "ADR"
@@ -55,10 +51,8 @@ agents:
 
   - id: "builder"
     name: "Builder"
-    version: "1.0.0"
     role: "implementation"
     focus: "Implementação"
-    has_hard_stops: true
     triggers:
       - "@builder"
       - "implement"
@@ -71,38 +65,29 @@ agents:
 
   - id: "guardian"
     name: "Guardian"
-    version: "1.0.0"
     role: "quality"
     focus: "Qualidade & Segurança"
-    has_hard_stops: true
     triggers:
       - "@guardian"
       - "test"
       - "security"
       - "performance"
     outputs:
-      - "docs/security/"
-      - "docs/performance/"
       - "Estratégia de testes"
       - "Security audits"
       - "Performance reports"
 
   - id: "chronicler"
     name: "Chronicler"
-    version: "1.1.0"
     role: "documentation"
     focus: "Documentação & Memória"
-    has_hard_stops: true
-    auto_story_generation: true
     triggers:
       - "@chronicler"
       - "document"
       - "snapshot"
       - "changelog"
-      - "stories"
     outputs:
       - "docs/CHANGELOG.md"
-      - "docs/planning/stories/"
       - ".devflow/snapshots/"
       - "ADRs automáticos"
       - "Knowledge graph"
@@ -118,6 +103,22 @@ tech_stack:
   tools:
     - "Claude Code"
     - "Git"
+
+# Estrutura do projeto
+structure:
+  source_dirs:
+    - ".devflow/"
+    - "docs/"
+
+  documentation_dirs:
+    - "docs/decisions/"
+    - "docs/architecture/"
+    - "docs/planning/"
+    - "docs/api/"
+    - "docs/migration/"
+
+  output_dirs:
+    - ".devflow/snapshots/"
 
 # Features implementadas
 features:
@@ -163,7 +164,7 @@ features:
     version: "0.3.0"
     description: "Chronicler gera stories se strategist não criar"
 
-# Decisões arquiteturais
+# Decisões arquiteturais (resumo - detalhes em ADRs)
 decisions:
   - id: "ADR-001"
     title: "5 Agentes ao invés de 19+"
@@ -183,27 +184,17 @@ decisions:
     date: "2025-11-15"
     tags: ["metadata", "ai-optimization"]
 
-# Orquestração (v0.3.0)
-orchestration:
-  hard_stops_enabled: true
-  mandatory_delegation_enabled: true
-  auto_story_generation: true
-  workflow:
-    - "strategist"
-    - "architect"
-    - "builder"
-    - "guardian"
-    - "chronicler"
-
 # Métricas (atualizadas pelo Chronicler)
 metrics:
-  total_files: 0
+  total_files: 28
   total_agents: 5
-  total_features: 7
   total_decisions: 3
+  total_adrs: 2
+  total_features: 7
   documentation_coverage: "excellent"
   metadata_coverage: "excellent"
   orchestration_coverage: "complete"
+  last_snapshot: "2025-12-05"
 
 # Configurações
 config:
@@ -211,7 +202,6 @@ config:
     auto_snapshot: false
     snapshot_frequency: "on-demand"
     auto_changelog: true
-    auto_story_generation: true
 
   documentation:
     format: "markdown"

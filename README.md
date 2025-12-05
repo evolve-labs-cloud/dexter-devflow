@@ -2,7 +2,7 @@
 
 Sistema simplificado de multi-agentes especializados para desenvolvimento de software, otimizado para uso com Claude Code.
 
-[![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](docs/CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🆕 Novidades v0.3.0
@@ -18,8 +18,8 @@ Sistema simplificado de multi-agentes especializados para desenvolvimento de sof
 
 ### 1. Clone este repositório
 ```bash
-git clone https://github.com/seu-usuario/devflow.git
-cd devflow
+git clone https://github.com/evolve-labs-cloud/dexter-devflow.git
+cd dexter-devflow
 ```
 
 ### 2. Instale no seu projeto
@@ -29,6 +29,7 @@ cd devflow
 
 # Opção B: Manual
 cp -r .devflow /caminho/para/seu-projeto/
+cp -r docs /caminho/para/seu-projeto/
 ```
 
 ### 3. Comece a usar
@@ -43,8 +44,6 @@ cd /caminho/para/seu-projeto
 ---
 
 ## 🤖 Os 5 Agentes
-
-Após instalar, você tem acesso a:
 
 | Agente | Função | Uso |
 |--------|--------|-----|
@@ -79,20 +78,18 @@ Cada agente agora tem limites rígidos:
 ```
 seu-projeto/
 ├── .devflow/
-│   ├── agents/          # 5 agentes especializados (+ metadata)
-│   ├── snapshots/       # Histórico do projeto
-│   ├── project.yaml     # Estado do projeto (para IA)
-│   └── knowledge-graph.json  # Conexões entre elementos
+│   ├── agents/           # 5 agentes especializados (+ metadata)
+│   ├── snapshots/        # Histórico do projeto
+│   ├── project.yaml      # Estado do projeto (para IA)
+│   └── knowledge-graph.json
 │
-├── docs/                # Documentação
-│   ├── decisions/       # ADRs
-│   ├── api/             # Docs de APIs
-│   ├── architecture/    # Diagramas e docs técnicos
+├── docs/
+│   ├── decisions/        # ADRs
 │   ├── planning/stories/ # User stories (auto-geradas)
-│   ├── security/        # Security audits
-│   └── performance/     # Performance reports
+│   ├── security/         # Security audits
+│   └── performance/      # Performance reports
 │
-└── seu código...        # Seu código existente
+└── seu código...
 ```
 
 ---
@@ -103,45 +100,19 @@ O **@chronicler** mantém automaticamente:
 - ✅ CHANGELOG.md atualizado
 - ✅ ADRs para decisões importantes
 - ✅ Snapshots do projeto (markdown + JSON)
-- ✅ Detecção de docs desatualizados
 - ✅ **Knowledge Graph** - Conexões entre decisões, features e agentes
 - ✅ **Metadata Estruturada** - Parse 100x mais rápido pela IA
 - ✅ **User Stories automáticas** - Se @strategist não criar (v0.3.0)
-
-**Resultado**: A IA sempre sabe o estado completo do projeto + compreende instantaneamente.
 
 ---
 
 ## 📚 Documentação
 
-### Guias Principais
-- **[Instalação Completa](docs/INSTALLATION.md)** - Guia detalhado
 - **[Quick Start](docs/QUICKSTART.md)** - Comece em 5 minutos
+- **[Instalação](docs/INSTALLATION.md)** - Guia detalhado
 - **[Arquitetura](docs/ARCHITECTURE.md)** - Como funciona
-- **[AI Optimization](docs/AI_OPTIMIZATION_GUIDE.md)** - Maximize capabilities (v0.3.0)
-- **[Metadata Guide](docs/METADATA_GUIDE.md)** - Sistema de metadata estruturada
+- **[AI Optimization](docs/AI_OPTIMIZATION_GUIDE.md)** - Maximize capabilities
 - **[Changelog](docs/CHANGELOG.md)** - Histórico de mudanças
-
-### Referência dos Agentes
-- [Strategist](.devflow/agents/strategist.md) - [Metadata](.devflow/agents/strategist.meta.yaml)
-- [Architect](.devflow/agents/architect.md) - [Metadata](.devflow/agents/architect.meta.yaml)
-- [Builder](.devflow/agents/builder.md) - [Metadata](.devflow/agents/builder.meta.yaml)
-- [Guardian](.devflow/agents/guardian.md) - [Metadata](.devflow/agents/guardian.meta.yaml)
-- [Chronicler](.devflow/agents/chronicler.md) - [Metadata](.devflow/agents/chronicler.meta.yaml)
-
----
-
-## 🎯 Filosofia
-
-**"Simplicidade sem sacrificar poder"**
-
-- ✅ 5 agentes especializados (ao invés de 19+)
-- ✅ Zero configuração inicial
-- ✅ Workflows adaptativos (4 níveis)
-- ✅ Documentação automática nativa
-- ✅ Prevenção de drift de contexto
-- ✅ Hard stops para cada agente (v0.3.0)
-- ✅ Delegação obrigatória (v0.3.0)
 
 ---
 
@@ -157,8 +128,6 @@ O **@chronicler** mantém automaticamente:
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas!
-
 1. Fork o projeto
 2. Crie sua feature branch
 3. Commit suas mudanças
@@ -172,12 +141,4 @@ MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 ---
 
-## 💬 Suporte
-
-- 📖 **Documentação**: Veja arquivos em [docs/](docs/)
-- 💬 **Dúvidas**: Abra uma [Issue](https://github.com/seu-usuario/devflow/issues)
-- ⭐ **Gostou?**: Dê uma estrela no repo!
-
----
-
-**DevFlow v0.3.0** - Desenvolvido com ❤️ para desenvolvimento eficiente com IA
+**DevFlow v0.3.0** - Desenvolvido por [Evolve Labs](https://github.com/evolve-labs-cloud)
