@@ -1,0 +1,75 @@
+# DevFlow .gitignore
+
+# Node modules (se usar JavaScript/TypeScript)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE específicos
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS específicos
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Python (se usar)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Arquivos grandes ou sensíveis
+*.zip
+*.tar.gz
+*.rar
+
+# Mantenha estas pastas (não ignore)
+# Importante: queremos versionar a documentação!
+!.devflow/
+!docs/
+!planning/
+!architecture/
+!CHANGELOG.md
+
+# Snapshots podem ser grandes, você decide se quer versionar
+# Descomente a linha abaixo se NÃO quiser versionar snapshots:
+# .devflow/snapshots/*.json
+
+# DevFlow Development (não incluir no release)
+# Arquivos específicos de desenvolvimento do DevFlow que não vão para usuários
+.claude/
+build-release.sh  # Script de build fica apenas no dev
+
+# Releases geradas (versionadas separadamente)
+# Mantenha release/ versionado para distribuição
+!release/

@@ -1,0 +1,101 @@
+# DevFlow Project
+
+Sistema multi-agentes para desenvolvimento de software.
+
+---
+
+## 🚨 REGRAS OBRIGATÓRIAS DE ORQUESTRAÇÃO
+
+### ⛔ CADA AGENTE TEM UM PAPEL ESPECÍFICO - NÃO MISTURE!
+
+```
+@strategist  → APENAS planejamento, PRDs, requisitos, user stories
+               NUNCA escreve código, NUNCA faz design técnico
+
+@architect   → APENAS design técnico, ADRs, schemas, diagramas
+               NUNCA implementa código de produção, NUNCA define requisitos
+
+@builder     → APENAS implementação de código e testes unitários
+               NUNCA define requisitos, NUNCA faz arquitetura
+
+@guardian    → APENAS QA, security review, estratégia de testes
+               NUNCA implementa features, NUNCA faz design
+
+@chronicler  → APENAS documentação, CHANGELOG, snapshots, stories
+               NUNCA escreve código, NUNCA faz design
+```
+
+### ✅ FLUXO OBRIGATÓRIO DE DELEGAÇÃO
+
+```
+1. @strategist cria PRD/specs
+   └→ DEVE chamar @architect para design técnico
+   └→ SE não criar stories, @chronicler DEVE gerar
+
+2. @architect cria design técnico
+   └→ DEVE chamar @builder para implementar
+
+3. @builder implementa código
+   └→ DEVE chamar @guardian para revisar
+   └→ @chronicler atualiza docs automaticamente
+
+4. @guardian aprova
+   └→ @chronicler documenta aprovação
+
+5. SE qualquer agente tentar fazer trabalho de outro
+   └→ DEVE PARAR e delegar ao agente correto
+```
+
+---
+
+## Agentes Disponíveis
+
+Este projeto usa 5 agentes especializados. Use @mentions para chamá-los:
+
+- **@strategist** - Planejamento e requisitos
+- **@architect** - Design e arquitetura
+- **@builder** - Implementação de código
+- **@guardian** - Testes e segurança
+- **@chronicler** - Documentação automática
+
+## Como Usar
+
+### Mencionar um agente específico:
+```
+@strategist Analise os requisitos para...
+@architect Design a solução para...
+@builder Implemente a feature...
+@guardian Revise a segurança...
+@chronicler Documente as mudanças...
+```
+
+### Workflows comuns:
+
+**Nova Feature:**
+1. @strategist → Analisa e cria spec + stories
+2. @architect → Design técnico + ADR
+3. @builder → Implementa
+4. @guardian → Testa e valida segurança
+5. @chronicler → Documenta (automático)
+
+**Bug Fix:**
+1. @builder → Investiga e corrige
+2. @guardian → Valida fix
+3. @chronicler → Documenta (automático)
+
+**Security Review:**
+1. @guardian → Audit completo
+2. @chronicler → Documenta findings
+
+## Estrutura
+
+```
+.devflow/agents/          - Definições dos agentes
+docs/                     - Toda a documentação
+  ├── decisions/          - ADRs
+  ├── planning/           - Specs e stories
+  │   └── stories/        - User stories (geradas por @chronicler se necessário)
+  ├── architecture/       - Docs técnicos e diagramas
+  ├── api/                - Docs de APIs
+  └── CHANGELOG.md        - Mantido pelo Chronicler
+```
