@@ -1,8 +1,18 @@
-# DevFlow - Sistema Multi-Agentes para Desenvolvimento
+# DevFlow v0.3.0 - Sistema Multi-Agentes para Desenvolvimento
 
 Sistema simplificado de multi-agentes especializados para desenvolvimento de software, otimizado para uso com Claude Code.
 
+[![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## 🆕 Novidades v0.3.0
+
+- **Hard Stops**: Cada agente tem regras rígidas que impedem violações de papel
+- **Delegação Obrigatória**: Fluxo mandatório entre agentes
+- **Geração Automática de Stories**: @chronicler gera stories se @strategist não criar
+- **AI Optimization Guide**: Guia completo para maximizar capacidades
+
+---
 
 ## 🚀 Instalação em 3 Passos
 
@@ -42,7 +52,25 @@ Após instalar, você tem acesso a:
 | **@architect** | Design & Arquitetura | Decisões técnicas, ADRs, APIs |
 | **@builder** | Implementação | Código, reviews, refactoring |
 | **@guardian** | Qualidade & Segurança | Testes, security, performance |
-| **@chronicler** | Documentação & Memória | CHANGELOG, snapshots, docs |
+| **@chronicler** | Documentação & Memória | CHANGELOG, snapshots, stories |
+
+### 🚨 Hard Stops (v0.3.0)
+
+Cada agente agora tem limites rígidos:
+
+```
+@strategist → APENAS planejamento (NUNCA código)
+@architect  → APENAS design técnico (NUNCA implementação)
+@builder    → APENAS código (NUNCA requisitos)
+@guardian   → APENAS QA/segurança (NUNCA features)
+@chronicler → APENAS documentação (NUNCA código)
+```
+
+### Fluxo Obrigatório
+
+```
+@strategist → @architect → @builder → @guardian → @chronicler
+```
 
 ---
 
@@ -51,14 +79,18 @@ Após instalar, você tem acesso a:
 ```
 seu-projeto/
 ├── .devflow/
-│   ├── agents/          # 5 agentes especializados
-│   └── snapshots/       # Histórico do projeto
+│   ├── agents/          # 5 agentes especializados (+ metadata)
+│   ├── snapshots/       # Histórico do projeto
+│   ├── project.yaml     # Estado do projeto (para IA)
+│   └── knowledge-graph.json  # Conexões entre elementos
 │
-├── docs/                # Documentação (opcional, mas recomendado)
+├── docs/                # Documentação
 │   ├── decisions/       # ADRs
 │   ├── api/             # Docs de APIs
 │   ├── architecture/    # Diagramas e docs técnicos
-│   └── planning/        # PRDs e user stories
+│   ├── planning/stories/ # User stories (auto-geradas)
+│   ├── security/        # Security audits
+│   └── performance/     # Performance reports
 │
 └── seu código...        # Seu código existente
 ```
@@ -74,6 +106,7 @@ O **@chronicler** mantém automaticamente:
 - ✅ Detecção de docs desatualizados
 - ✅ **Knowledge Graph** - Conexões entre decisões, features e agentes
 - ✅ **Metadata Estruturada** - Parse 100x mais rápido pela IA
+- ✅ **User Stories automáticas** - Se @strategist não criar (v0.3.0)
 
 **Resultado**: A IA sempre sabe o estado completo do projeto + compreende instantaneamente.
 
@@ -85,7 +118,8 @@ O **@chronicler** mantém automaticamente:
 - **[Instalação Completa](docs/INSTALLATION.md)** - Guia detalhado
 - **[Quick Start](docs/QUICKSTART.md)** - Comece em 5 minutos
 - **[Arquitetura](docs/ARCHITECTURE.md)** - Como funciona
-- **[Metadata Guide](docs/METADATA_GUIDE.md)** - Sistema de metadata estruturada (v0.2.0+)
+- **[AI Optimization](docs/AI_OPTIMIZATION_GUIDE.md)** - Maximize capabilities (v0.3.0)
+- **[Metadata Guide](docs/METADATA_GUIDE.md)** - Sistema de metadata estruturada
 - **[Changelog](docs/CHANGELOG.md)** - Histórico de mudanças
 
 ### Referência dos Agentes
@@ -101,14 +135,49 @@ O **@chronicler** mantém automaticamente:
 
 **"Simplicidade sem sacrificar poder"**
 
-- ✅ 5 agentes especializados
+- ✅ 5 agentes especializados (ao invés de 19+)
 - ✅ Zero configuração inicial
 - ✅ Workflows adaptativos (4 níveis)
 - ✅ Documentação automática nativa
 - ✅ Prevenção de drift de contexto
+- ✅ Hard stops para cada agente (v0.3.0)
+- ✅ Delegação obrigatória (v0.3.0)
+
+---
+
+## 📊 Features por Versão
+
+| Versão | Features |
+|--------|----------|
+| v0.1.0 | Multi-agent system, Documentation automation, Snapshots |
+| v0.2.0 | Structured metadata (YAML/JSON), Knowledge graph |
+| v0.3.0 | Hard stops, Mandatory delegation, Auto story generation |
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas!
+
+1. Fork o projeto
+2. Crie sua feature branch
+3. Commit suas mudanças
+4. Abra um Pull Request
 
 ---
 
 ## 📜 Licença
 
 MIT License - veja [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 💬 Suporte
+
+- 📖 **Documentação**: Veja arquivos em [docs/](docs/)
+- 💬 **Dúvidas**: Abra uma [Issue](https://github.com/seu-usuario/devflow/issues)
+- ⭐ **Gostou?**: Dê uma estrela no repo!
+
+---
+
+**DevFlow v0.3.0** - Desenvolvido com ❤️ para desenvolvimento eficiente com IA
