@@ -117,9 +117,6 @@ echo -e "  → Atualizando documentação..."
 cp "$SCRIPT_DIR/docs/AI_OPTIMIZATION_GUIDE.md" "$TARGET_DIR/docs/" 2>/dev/null || true
 cp "$SCRIPT_DIR/docs/CHANGELOG.md" "$TARGET_DIR/docs/" 2>/dev/null || true
 
-# Update WORKFLOW.md
-cp "$SCRIPT_DIR/WORKFLOW.md" "$TARGET_DIR/" 2>/dev/null || true
-
 echo ""
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${GREEN}  ✅ DevFlow atualizado para v${CURRENT_VERSION}!${NC}"
