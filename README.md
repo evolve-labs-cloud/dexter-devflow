@@ -116,6 +116,27 @@ O **@chronicler** mantém automaticamente:
 
 ---
 
+## 🔄 Atualizando de Versões Anteriores
+
+Se você já tem o DevFlow instalado e quer atualizar:
+
+```bash
+# 1. Clone ou atualize o repositório
+git clone https://github.com/evolve-labs-cloud/dexter-devflow.git
+cd dexter-devflow
+
+# 2. Execute o script de update apontando para seu projeto
+./update.sh /caminho/para/seu-projeto
+```
+
+O script vai:
+- Fazer backup dos seus agentes atuais
+- Atualizar para a nova versão
+- Criar novos diretórios necessários
+- Preservar seus snapshots e dados
+
+---
+
 ## 📊 Features por Versão
 
 | Versão | Features |
@@ -123,6 +144,15 @@ O **@chronicler** mantém automaticamente:
 | v0.1.0 | Multi-agent system, Documentation automation, Snapshots |
 | v0.2.0 | Structured metadata (YAML/JSON), Knowledge graph |
 | v0.3.0 | Hard stops, Mandatory delegation, Auto story generation |
+
+---
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie sua feature branch
+3. Commit suas mudanças
+4. Abra um Pull Request
 
 ---
 
