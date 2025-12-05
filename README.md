@@ -126,15 +126,6 @@ O **@chronicler** mantém automaticamente:
 
 ---
 
-## 🤝 Contribuindo
-
-1. Fork o projeto
-2. Crie sua feature branch
-3. Commit suas mudanças
-4. Abra um Pull Request
-
----
-
 ## 📜 Licença
 
 MIT License - veja [LICENSE](LICENSE) para detalhes.
