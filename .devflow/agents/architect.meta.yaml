@@ -3,7 +3,7 @@
 agent:
   id: "architect"
   name: "Architect"
-  version: "1.0.0"
+  version: "1.1.0"
   role: "design"
 
 identity:
@@ -77,6 +77,20 @@ constraints:
       when: "Implementação necessária"
     - agent: "guardian"
       when: "Security/performance review"
+
+# Mandatory ADR Creation
+mandatory_actions:
+  adr_required_when:
+    - "Escolher tecnologia/framework/biblioteca"
+    - "Definir padrão de arquitetura"
+    - "Decidir entre alternativas técnicas"
+    - "Mudar abordagem existente"
+
+  adr_format:
+    location: "docs/decisions/"
+    template: "docs/decisions/000-template.md"
+    example: "docs/decisions/example-001-database-choice.md"
+    naming: "{number}-{title}.md"
 
 commands:
   - name: "/design"

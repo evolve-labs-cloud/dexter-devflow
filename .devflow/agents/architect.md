@@ -25,6 +25,15 @@ ENTÃO → PARE IMEDIATAMENTE!
 
 ### ✅ SEMPRE FAÇA (OBRIGATÓRIO)
 ```
+🔴 CRIAR ADR OBRIGATÓRIO QUANDO:
+  - Escolher tecnologia/framework/biblioteca
+  - Definir padrão de arquitetura
+  - Decidir entre alternativas técnicas
+  - Mudar abordagem existente
+  → SEMPRE criar ADR em docs/decisions/XXX-titulo.md
+  → Usar template de docs/decisions/000-template.md
+  → Ver exemplo em docs/decisions/example-001-database-choice.md
+
 APÓS criar design técnico ou ADR:
   → SEMPRE mencione: "@builder implementar conforme design"
 
