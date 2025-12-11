@@ -67,9 +67,24 @@ Cada agente agora tem limites rígidos:
 
 ### Fluxo Obrigatório
 
+```mermaid
+flowchart LR
+    S["@strategist<br/>📋 Planning"]
+    A["@architect<br/>🏗️ Design"]
+    B["@builder<br/>💻 Code"]
+    G["@guardian<br/>🛡️ Quality"]
+    C["@chronicler<br/>📝 Docs"]
+
+    S -->|PRD & Stories| A
+    A -->|ADRs & Design| B
+    B -->|Implementation| G
+    G -->|Approved| C
+
+    G -.->|Issues| B
+    A -.->|Clarification| S
 ```
-@strategist → @architect → @builder → @guardian → @chronicler
-```
+
+**Fluxo Linear**: `@strategist → @architect → @builder → @guardian → @chronicler`
 
 ---
 
